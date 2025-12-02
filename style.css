@@ -1,0 +1,420 @@
+/* 1. SIFIRLAMA (RESET) */
+/* Tarayıcıların varsayılan boşluklarını siliyoruz */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Padding ekleyince kutu büyümesin diye */
+}
+
+/* 2. GENEL AYARLAR */
+body {
+    background-color: #fafafa; /* Instagram'ın hafif gri arka planı */
+    font-family: 'Roboto', sans-serif; /* Google Fonts'tan çektiğimiz yazı tipi */
+}
+
+/* 3. NAVBAR KUTUSU (DIŞ KABUK) */
+.navbar {
+    position: fixed; /* Sayfa kaydırılsa bile üstte sabit kalsın */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    border-bottom: 1px solid #dbdbdb; /* Altına ince gri çizgi */
+    display: flex;
+    justify-content: center; /* İçindekileri ortala */
+    align-items: center;
+    z-index: 100; /* Diğer her şeyin üstünde dursun */
+}
+
+/* 4. NAVBAR İÇERİĞİ (ORTADAKİ KISIM) */
+.nav-wrapper {
+    width: 70%;
+    max-width: 975px; /* Instagram masaüstünde bu genişliği kullanır */
+    display: flex;
+    justify-content: space-between; /* Logo sola, Arama ortaya, İkonlar sağa */
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 5. LOGO AYARI */
+.brand-img {
+    height: 29px; /* Logonun boyutu */
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* 6. ARAMA KUTUSU */
+.search-box {
+    width: 250px;
+    height: 36px;
+    background: #efefef;
+    border: none;
+    border-radius: 8px; /* Köşeleri yuvarlat */
+    padding: 0 16px;
+    outline: none;
+    font-size: 14px;
+    color: #262626;
+    text-align: center; /* Yazıyı ortala (Instagram stili) */
+}
+
+/* 7. SAĞDAKİ İKONLAR */
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 22px; /* İkonlar arası boşluk */
+}
+
+.nav-items i {
+    font-size: 24px; /* İkon boyutu */
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.2s; /* Üzerine gelince animasyon olsun */
+}
+
+/* İkonun üzerine gelince hafif büyüsün */
+.nav-items i:hover {
+    transform: scale(1.1);
+}
+
+/* Profil Resmi */
+.user-profile img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Tam yuvarlak yap */
+    cursor: pointer;
+    border: 1px solid #dbdbdb;
+}
+
+/* --- ANA GÖVDE AYARLARI --- */
+.main {
+    width: 100%;
+    padding: 20px 0;
+    display: flex; /* İçindekileri yan yana diz */
+    justify-content: center; /* Ortala */
+    margin-top: 50px; /* Navbar'ın altında kalmasın diye boşluk */
+}
+
+.wrapper {
+    width: 70%;
+    max-width: 975px;
+    display: flex;
+    justify-content: center; /* Şimdilik sadece sol sütunu ortalayalım */
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    max-width: 470px; /* Instagram'da post genişliği genelde budur */
+}
+
+/* --- POST KARTI TASARIMI (Burası Çok Önemli) --- */
+.post {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #dbdbdb; /* Postun etrafındaki gri çizgi */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Postlar arası boşluk */
+}
+
+/* Postun Üst Kısmı (Profil fotosu ve isim) */
+.info {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between; /* İsim solda, üç nokta sağda */
+    align-items: center;
+    padding: 0 15px;
+}
+
+.info .user {
+    display: flex;
+    align-items: center;
+}
+
+.info .profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Yuvarlak yap */
+    object-fit: cover; /* Resmi ezmeden sığdır */
+    margin-right: 10px;
+    border: 1px solid #dbdbdb;
+}
+
+.info .username {
+    font-weight: bold;
+    color: #262626;
+    font-size: 14px;
+}
+
+/* Post Resmi */
+.post-image {
+    width: 100%;
+    height: auto; /* Resim orijinal boyutuna göre uzasın */
+    display: block;
+}
+
+/* Postun Alt Kısmı (Butonlar ve Açıklama) */
+.post-content {
+    width: 100%;
+    padding: 15px;
+}
+
+.reaction-wrapper {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.reaction-wrapper i {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.likes {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.description span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.post-time {
+    font-size: 10px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+}
+
+/* --- SAĞ SÜTUN AYARLARI --- */
+.right-col {
+    padding: 20px;
+    /*position: fixed; /* Sayfaya yapışık kalsın */
+    right: 15%; /* Konumu ayarla (ekran boyutuna göre değişebilir) */
+    top: 80px; /* Navbar'ın altından başlasın */
+    width: 320px; 
+}
+
+/* Profil ve Öneri Kartları */
+.profile-card, .suggestion-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-card .profile-pic, .suggestion-card .profile-pic {
+    flex: 0 0 40px; /* Sabit genişlik */
+    height: 40px;
+    margin-right: 10px;
+}
+
+.profile-card .profile-pic img, .suggestion-card .profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-card > div, .suggestion-card > div {
+    flex: 1; /* Kalan boşluğu doldur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey ortala */
+}
+
+.username {
+    font-weight: bold;
+    font-size: 14px;
+    color: #262626;
+}
+
+.sub-text {
+    color: #8e8e8e;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Takip Et Butonu */
+.action-btn {
+    border: none;
+    background: none;
+    color: #0095f6; /* Instagram Mavisi */
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.suggestion-text {
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+/* Ekran küçülürse (Tablet/Mobil) sağ tarafı gizle */
+@media (max-width: 1000px) {
+    .right-col {
+        display: none;
+    }
+    
+    .wrapper, .nav-wrapper {
+        width: 90%;
+        justify-content: center;
+    }
+    
+    .left-col {
+        width: 100%;
+    }
+}
+
+/* --- SOHBET SAYFASI DÜZENİ --- */
+.main-chat {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px; /* Navbar'ın altında kalsın */
+    height: calc(100vh - 100px); /* Sayfanın tamamını kaplasın */
+}
+
+.chat-wrapper {
+    width: 70%;
+    max-width: 935px;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    display: flex; /* Yan yana dizmek için */
+    overflow: hidden;
+}
+
+/* Sol Taraf (Liste) */
+.chat-sidebar {
+    width: 35%; /* Listenin genişliği */
+    border-right: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    height: 60px;
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.chat-header i.fa-pen-to-square {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
+.chat-users {
+    overflow-y: auto; /* Kaydırma çubuğu */
+    flex: 1;
+}
+
+.user-item {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-item:hover { background: #fafafa; }
+.user-item.active { background: #efefef; } /* Seçili kişi gri olsun */
+
+.user-item img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-detail .name { font-weight: 500; font-size: 14px; }
+.user-detail .last-msg { color: #8e8e8e; font-size: 13px; }
+
+/* Sağ Taraf (Mesaj Kutusu) */
+.chat-box {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box-header {
+    height: 60px;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-box-header .user-info {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.chat-box-header img {
+    width: 24px; 
+    height: 24px; 
+    border-radius: 50%; 
+    margin-right: 10px;
+}
+
+/* Mesaj Balonları */
+.messages-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 22px;
+    font-size: 14px;
+}
+
+.message.incoming {
+    align-self: flex-start; /* Sola yasla */
+    background: #fff;
+    border: 1px solid #dbdbdb;
+}
+
+.message.outgoing {
+    align-self: flex-end; /* Sağa yasla */
+    background: #efefef;
+}
+
+/* Mesaj Yazma Inputu */
+.chat-input-area {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 22px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+
+.chat-input-area i { font-size: 24px; cursor: pointer; }

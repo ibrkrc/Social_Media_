@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Instagram</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+        <div class="nav-wrapper">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" class="brand-img" alt="logo">
+            
+            <input type="text" class="search-box" placeholder="Ara">
+            
+            <div class="nav-items">
+                <i class="fa-solid fa-house"></i> <i class="fa-brands fa-facebook-messenger"></i> <i class="fa-regular fa-square-plus"></i> <i class="fa-regular fa-compass"></i> <i class="fa-regular fa-heart"></i> <div class="icon user-profile">
+                     <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="profil">
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    
+    <section class="main">
+        <div class="wrapper">
+            
+            <div class="left-col">
+                
+                <div class="status-wrapper">
+                    </div>
+
+                <div id="posts-container">
+                    </div>
+
+            </div>
+
+            <div class="right-col">
+                <div class="profile-card">
+    <div class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="">
+    </div>
+    <div>
+        <p class="username">Altay Atakan</p>
+        <p class="sub-text">Bilgisayar Mühendisliği Öğrencisi</p>
+    </div>
+    <button class="action-btn">Geçiş Yap</button>
+</div>
+
+<p class="suggestion-text">Senin için önerilenler</p>
+
+<div class="suggestion-card">
+    <div class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="">
+    </div>
+    <div>
+        <p class="username">Mehmet Özkan</p>
+        <p class="sub-text">Sizi takip ediyor</p>
+    </div>
+    <button class="action-btn" onclick="toggleFollow(this)">Takip Et</button>
+</div>
+
+<div class="suggestion-card">
+    <div class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="">
+    </div>
+    <div>
+        <p class="username">Umay Dinçer</p>
+        <p class="sub-text">Instagram öneriyor</p>
+    </div>
+    <button class="action-btn" onclick="toggleFollow(this)">Takip Et</button>
+</div>
+
+<div class="suggestion-card">
+    <div class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="">
+    </div>
+    <div>
+        <p class="username">Polat Osman</p>
+        <p class="sub-text">senin_kullanici_adin takip ediyor</p>
+    </div>
+    <button class="action-btn" onclick="toggleFollow(this)">Takip Et</button>
+</div>
+                </div>
+
+        </div>
+    </section>
+    <script src="script.js"></script>
+
+    <section class="main-chat">
+        <div class="chat-wrapper">
+            
+            <div class="chat-sidebar">
+                <div class="chat-header">
+                    <h4>kodinnggg <i class="fa-solid fa-chevron-down"></i></h4>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </div>
+                <div class="chat-users">
+                    <div class="user-item active"> <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+                        <div class="user-detail">
+                            <p class="name">muhendis_bey</p>
+                            <p class="last-msg">Projeyi bitirdin mi? · 1s</p>
+                        </div>
+                    </div>
+                    <div class="user-item">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+                        <div class="user-detail">
+                            <p class="name">gezen_kadin</p>
+                            <p class="last-msg">Fotoğrafı beğendim! · 5s</p>
+                        </div>
+                    </div>
+                    <div class="user-item">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                        <div class="user-detail">
+                            <p class="name">mehmet_yazilim</p>
+                            <p class="last-msg">Yarın toplantı var. · 1g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-box">
+                <div class="chat-box-header">
+                    <div class="user-info">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+                        <p>muhendis_bey</p>
+                    </div>
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <div class="messages-area">
+                    <div class="message incoming">
+                        <p>Selam dostum, proje nasıl gidiyor?</p>
+                    </div>
+                    <div class="message outgoing">
+                        <p>Selam! Frontend bitti sayılır, şimdi DM sayfasını yapıyorum.</p>
+                    </div>
+                    <div class="message incoming">
+                        <p>Süper! Bitince haber ver inceleyelim.</p>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Mesaj yaz...">
+                    <i class="fa-regular fa-image"></i>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+</body>
+</html>
+
+
+
+ 
